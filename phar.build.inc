@@ -21,7 +21,7 @@ $compiler
   ])
   ->addFile([
     'LICENSE',
-    'README.md',
+    'README_ORIGIN.md',
   ])
   ->setCliIndex('bin/swoft')
   // ->setWebIndex('web/index.php')

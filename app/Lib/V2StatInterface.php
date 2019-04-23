@@ -26,17 +26,20 @@ interface V2StatInterface
     public function getUserLinkStat(string $name) : array ;
 
     /**
+     * @param $proxy
      * @return array
      */
-    public function getUsersDownlinkStat() : array ;
+    public function getUsersDownlinkStat(string $proxy) : array ;
 
     /**
+     * @param $proxy
      * @return array
      */
-    public function getUsersUplinkStat() : array ;
+    public function getUsersUplinkStat(string $proxy) : array ;
 
     /**
+     * @param $proxy
      * @return array
      */
-    public function getUsersLinkStat() : array ;
+    public function getUsersLinkStat(string $proxy) : array ;
 }

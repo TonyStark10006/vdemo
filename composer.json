@@ -46,9 +46,6 @@
         "files": [
             "app/Swoft.php",
             "app/Helper/Functions.php"
-        ],
-        "classmap": [
-            "V2ray"
         ]
     },
     "autoload-dev": {

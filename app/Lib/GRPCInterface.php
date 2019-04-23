@@ -1,22 +1,17 @@
 <?php
 namespace App\Lib;
 
-use V2ray\Core\App\Stats\Command\GetStatsRequest;
-use V2ray\Core\App\Stats\Command\QueryStatsRequest;
 
 interface GRPCInterface
 {
-//    public function __construct(string $sn);
-
-    public function reconnect();// : SSC ;
+    public function reconnect(string $className, string $serverName);
 
     public function disconnect() : void ;
 
-    public static function setStatRequest(array $name, bool $reset) : GetStatsRequest;
+    public static function init();//string ...$name(string $className, string $serverName);
 
-    public static function getStat(GetStatsRequest $request) : array ;
+    public static function start() : void ;
 
-    public static function setQueryStatRequest(string $pattern, bool $reset) : QueryStatsRequest;
+    public static function stop() : void ;
 
-    public static function getQueryStat(QueryStatsRequest $request) : array ;
 }

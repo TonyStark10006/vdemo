@@ -10,7 +10,8 @@
 
 namespace App\Controllers;
 
-use App\Lib\GRPCInterface;
+use App\Lib\V2RayGRPCAbstract;
+use App\Lib\V2StatGRPCInterface;
 use Swoft\Http\Server\Bean\Annotation\Controller;
 use Swoft\Http\Server\Bean\Annotation\RequestMapping;
 use Swoft\Http\Server\Bean\Annotation\RequestMethod;
@@ -23,11 +24,11 @@ use V2ray\Core\App\Stats\Command\StatsServiceClient;
 use V2ray\Core\App\Stats\Command\GetStatsRequest;
 
 /**
- * Class GRPCController
+ * Class V2StatGRPCController
  * @Controller(prefix="/gRPC")
  * @package App\Controllers
  */
-class GRPCController implements GRPCInterface
+class V2StatGRPCController extends V2RayGRPCAbstract
 {
     /**
      * @var $connection
@@ -41,7 +42,7 @@ class GRPCController implements GRPCInterface
     protected static $instance;
 
     /**
-     * @return GRPCController
+     * @return V2StatGRPCController
      * 初始化连接信息
      */
     public static function init() : self
@@ -120,12 +121,12 @@ class GRPCController implements GRPCInterface
 
     /**
      * @return StatsServiceClient
-     * 手动重新打开gRPC连接
+     * 手动新建gRPC客户端
      */
-    public function reconnect() : StatsServiceClient
-    {
-        return new StatsServiceClient(env("V2RAY_SN"), []);
-    }
+//    public function reconnect() : StatsServiceClient
+//    {
+//        return new StatsServiceClient(env("V2RAY_SN"), []);
+//    }
 
     /**
      *  手动关闭gRPC连接
