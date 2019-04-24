@@ -11,11 +11,12 @@
 namespace App\Controllers;
 
 use App\Lib\V2StatInterface;
+use App\Models\V2GRPC\V2StatGRPC;
+use App\Models\V2GRPC\V2UserGRPC;
 use Swoft\Http\Message\Server\Request;
 use Swoft\Http\Server\Bean\Annotation\Controller;
 use Swoft\Http\Server\Bean\Annotation\RequestMapping;
 use Swoft\Http\Server\Bean\Annotation\RequestMethod;
-use Swoole\Exception;
 
 // use Swoft\View\Bean\Annotation\View;
 // use Swoft\Http\Message\Server\Response;
@@ -54,21 +55,21 @@ class V2StatController implements V2StatInterface
 
     public function v2user()// : array
     {
-//        return V2StatGRPCController::getQueryStat(
-//            V2StatGRPCController::init()->setQueryStatRequest('123', false));
+//        return V2StatGRPC::getQueryStat(
+//            V2StatGRPC::init()->setQueryStatRequest('123', false));
 
         //添加用户
-//        return V2UserGRPCController::getAlterInboundResponse(V2UserGRPCController::setAlterInboundRequest(
-//            "proxy", V2UserGRPCController::init()->setAddUserOperation(1, "hahaha@123.com",
+//        return V2UserGRPC::getAlterInboundResponse(V2UserGRPC::setAlterInboundRequest(
+//            "proxy", V2UserGRPC::init()->setAddUserOperation(1, "hahaha@123.com",
 //            "a3482e88-686a-4a58-8126-99c9df64b7bf",
 //            64)
 //        ));//setAddUserOperation(1, "hahahaha@123.com", "a3482e88-686a-4a58-8126-99c9df64b7bf", 64);
 
         // 删除用户
-        return V2UserGRPCController::getAlterInboundResponse(
-            V2UserGRPCController::setAlterInboundRequest(
+        return V2UserGRPC::getAlterInboundResponse(
+            V2UserGRPC::setAlterInboundRequest(
                 "proxy",
-                V2UserGRPCController::init()::setRemoveUserOperation("hahaha@123.com")));
+                V2UserGRPC::init()::setRemoveUserOperation("hahaha@123.com")));
     }
 
 
@@ -136,8 +137,8 @@ class V2StatController implements V2StatInterface
             ]
         ];
 //        return self::getUsersLinkStat('proxy');
-//        return V2StatGRPCController::getQueryStat(
-//            V2StatGRPCController::init()->setQueryStatRequest('123', false));
+//        return V2StatGRPC::getQueryStat(
+//            V2StatGRPC::init()->setQueryStatRequest('123', false));
     }
 
     /**
@@ -154,28 +155,28 @@ class V2StatController implements V2StatInterface
             "code" => 200
         ];
 //        return self::getUsersLinkStat('proxy');
-//        return V2StatGRPCController::getQueryStat(
-//            V2StatGRPCController::init()->setQueryStatRequest('123', false));
+//        return V2StatGRPC::getQueryStat(
+//            V2StatGRPC::init()->setQueryStatRequest('123', false));
     }
 
     public function getUserDownlinkStat(string $name): array
     {
-        return V2StatGRPCController::getStat(
-            V2StatGRPCController::init()->setStatRequest([3, $name, 2], false));
+        return V2StatGRPC::getStat(
+            V2StatGRPC::init()->setStatRequest([3, $name, 2], false));
     }
 
     public function getUserUplinkStat(string $name): array
     {
-        return V2StatGRPCController::getStat(
-            V2StatGRPCController::init()->setStatRequest([3, $name, 1], false));
+        return V2StatGRPC::getStat(
+            V2StatGRPC::init()->setStatRequest([3, $name, 1], false));
     }
 
     public function getUserLinkStat(string $name): array
     {
 //        $stat = (float)substr(self::getUserDownlinkStat($name)[1], strlen(self::getUserDownlinkStat($name)[1]) - 3)
 //            + (float)substr(self::getUserUplinkStat($name)[1], strlen(self::getUserUplinkStat($name)[1]) - 3);
-        $stats = V2StatGRPCController::getQueryStat(
-            V2StatGRPCController::init()->setQueryStatRequest($name, false)
+        $stats = V2StatGRPC::getQueryStat(
+            V2StatGRPC::init()->setQueryStatRequest($name, false)
         );
         $stat = 0;
         foreach ($stats as $item) {
@@ -189,20 +190,20 @@ class V2StatController implements V2StatInterface
 
     public function getUsersDownlinkStat(string $proxy): array
     {
-        return V2StatGRPCController::getStat(
-            V2StatGRPCController::init()->setStatRequest([3, $proxy, 2], false));
+        return V2StatGRPC::getStat(
+            V2StatGRPC::init()->setStatRequest([3, $proxy, 2], false));
     }
 
     public function getUsersUplinkStat(string $proxy): array
     {
-        return V2StatGRPCController::getStat(
-            V2StatGRPCController::init()->setStatRequest([3, $proxy, 2], false));
+        return V2StatGRPC::getStat(
+            V2StatGRPC::init()->setStatRequest([3, $proxy, 2], false));
     }
 
     public function getUsersLinkStat(string $proxy): array
     {
-        $stats = V2StatGRPCController::getQueryStat(
-            V2StatGRPCController::init()->setQueryStatRequest($proxy, false)
+        $stats = V2StatGRPC::getQueryStat(
+            V2StatGRPC::init()->setQueryStatRequest($proxy, false)
         );
         $stat = 0;
         foreach ($stats as $item) {

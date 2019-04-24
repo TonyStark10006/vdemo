@@ -8,7 +8,7 @@
  * @license https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace App\Controllers;
+namespace App\Models\V2GRPC;
 
 use App\Lib\V2RayGRPCAbstract;
 use App\Lib\V2UserGRPCInterface;
@@ -29,11 +29,11 @@ use V2ray\Core\Proxy\Vmess\Account;
 // use Swoft\Http\Message\Server\Response;
 
 /**
- * Class V2UserGRPCController
+ * Class V2UserGRPC
  * @Controller(prefix="/V2UserGRPC")
  * @package App\Controllers
  */
-class V2UserGRPCController extends V2RayGRPCAbstract implements V2UserGRPCInterface
+class V2UserGRPC extends V2RayGRPCAbstract implements V2UserGRPCInterface
 {
     /**
      * this is a example action. access uri path: /V2UserGRPC

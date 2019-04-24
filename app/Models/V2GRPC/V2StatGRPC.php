@@ -8,7 +8,7 @@
  * @license https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace App\Controllers;
+namespace App\Models\V2GRPC;
 
 use App\Lib\V2RayGRPCAbstract;
 use App\Lib\V2StatGRPCInterface;
@@ -24,11 +24,11 @@ use V2ray\Core\App\Stats\Command\StatsServiceClient;
 use V2ray\Core\App\Stats\Command\GetStatsRequest;
 
 /**
- * Class V2StatGRPCController
+ * Class V2StatGRPC
  * @Controller(prefix="/gRPC")
  * @package App\Controllers
  */
-class V2StatGRPCController extends V2RayGRPCAbstract
+class V2StatGRPC extends V2RayGRPCAbstract
 {
     /**
      * @var $connection
@@ -42,7 +42,7 @@ class V2StatGRPCController extends V2RayGRPCAbstract
     protected static $instance;
 
     /**
-     * @return V2StatGRPCController
+     * @return V2StatGRPC
      * 初始化连接信息
      */
     public static function init() : self

@@ -16,9 +16,6 @@ use Swoft\Http\Server\Bean\Annotation\RequestMethod;
 // use Swoft\View\Bean\Annotation\View;
 // use Swoft\Http\Message\Server\Response;
 
-use App\Lib\V2UserInterface;
-//use App\Lib\Channel;
-
 //use Bluehead\V2ray\Core\App\Stats\Command\GetStatsRequest;
 //use Bluehead\V2ray\Core\App\Stats\Command\StatsServiceClient as CC;
 //use Grpc\ChannelCredentials;
