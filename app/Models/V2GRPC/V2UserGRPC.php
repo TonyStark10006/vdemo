@@ -49,6 +49,10 @@ class V2UserGRPC extends V2RayGRPCAbstract implements V2UserGRPCInterface
 
     protected static $instance;
 
+    private function __construct(){}
+
+    private function __clone(){}
+
     public static function init() : self
     {
         if (!self::$connection) {

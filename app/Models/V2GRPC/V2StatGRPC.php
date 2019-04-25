@@ -41,6 +41,10 @@ class V2StatGRPC extends V2RayGRPCAbstract
      */
     protected static $instance;
 
+    private function __construct(){}
+
+    private function __clone(){}
+
     /**
      * @return V2StatGRPC
      * 初始化连接信息
